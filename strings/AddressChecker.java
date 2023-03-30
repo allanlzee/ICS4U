@@ -2,24 +2,27 @@ package strings;
 
 import java.util.Scanner;
 
-public class Address {
+public class AddressChecker {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in); 
+        String address = ""; 
 
-        System.out.print("Address: ");
-        String address = scan.next(); 
-
-        if (checkFormat(address)) {
-            System.out.println("Correct");
-            if (validAddress(address))
-                System.out.println("Valid IP-Address");
-            else {
-                System.out.println("Invalid IP-Address");
-            }
-        } else {
-            System.out.println("Incorrect");
-        } 
-
+        while (address != "QUIT") {
+            System.out.print("Address: ");
+            address = scan.next(); 
+    
+            if (checkFormat(address)) {
+                System.out.println("Correct");
+                if (validAddress(address))
+                    System.out.println("Valid IP-Address");
+                else {
+                    System.out.println("Invalid IP-Address");
+                }
+            } else {
+                System.out.println("Incorrect");
+            } 
+        }
+        
         scan.close(); 
     }
 
