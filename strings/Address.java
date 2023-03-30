@@ -5,24 +5,20 @@ import java.util.Scanner;
 public class Address {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in); 
-
+    
         System.out.print("Address: ");
         String address = scan.next(); 
 
         if (checkFormat(address)) {
-            System.out.println("Correct");
-            if (validAddress(address))
-                System.out.println("Valid IP-Address");
-            else {
-                System.out.println("Invalid IP-Address");
-            }
+            System.out.println("Correct Format");
+            validAddress(address);
         } else {
-            System.out.println("Incorrect");
+            System.out.println("Incorrect Format");
         } 
 
-        scan.close(); 
+        scan.close();
     }
-
+    
     public static int numberOccurences(String address, char character) {
         int occurences = 0;
 
@@ -35,14 +31,15 @@ public class Address {
     }
 
     public static boolean besideCharacters(String address, char character) {
+        boolean beside = false; 
         for (int index = 0; index < address.length() - 1; index++) {
             if (address.charAt(index) == character) {
                 if (address.charAt(index + 1) == character)
-                    return true; 
+                    beside = true; 
             }
         }
 
-        return false; 
+        return beside; 
     }
 
     public static boolean checkFormat(String address) {
@@ -64,7 +61,7 @@ public class Address {
         return valid; 
     }
 
-    public static boolean validAddress(String address) {
+    public static void validAddress(String address) {
         String s = address + '.'; 
         boolean goAhead = true; 
 
@@ -87,8 +84,8 @@ public class Address {
         }
 
         if (goAhead) 
-            return true; 
-        
-        return false; 
+            System.out.println("Valid IP-Address"); 
+        else
+            System.out.println("Invalid IP-Address");
     }
 } 
