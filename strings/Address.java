@@ -4,10 +4,7 @@ import java.util.Scanner;
 
 public class Address {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in); 
-    
-        System.out.print("Address: ");
-        String address = scan.next(); 
+        String address = args[0];
 
         if (checkFormat(address)) {
             System.out.println("Correct Format");
@@ -15,8 +12,6 @@ public class Address {
         } else {
             System.out.println("Incorrect Format");
         } 
-
-        scan.close();
     }
     
     public static int numberOccurences(String address, char character) {
