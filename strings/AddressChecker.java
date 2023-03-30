@@ -1,8 +1,6 @@
 package strings;
 
-import java.util.Scanner;
-
-public class Address {
+public class AddressChecker {
     public static void main(String[] args) {
         String address = args[0];
 
@@ -14,7 +12,7 @@ public class Address {
         } 
     }
     
-    public static int numberOccurences(String address, char character) {
+    private static int numberOccurences(String address, char character) {
         int occurences = 0;
 
         for (int index = 0; index < address.length(); index++) {
@@ -25,7 +23,7 @@ public class Address {
         return occurences; 
     }
 
-    public static boolean besideCharacters(String address, char character) {
+    private static boolean besideCharacters(String address, char character) {
         boolean beside = false; 
         for (int index = 0; index < address.length() - 1; index++) {
             if (address.charAt(index) == character) {
@@ -37,7 +35,7 @@ public class Address {
         return beside; 
     }
 
-    public static boolean checkFormat(String address) {
+    private static boolean checkFormat(String address) {
         int length = address.length(); 
         boolean valid = true; 
 
@@ -56,7 +54,7 @@ public class Address {
         return valid; 
     }
 
-    public static void validAddress(String address) {
+    private static void validAddress(String address) {
         String s = address + '.'; 
         boolean goAhead = true; 
 
