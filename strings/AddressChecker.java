@@ -1,32 +1,18 @@
 package strings;
 
-import java.util.Scanner;
-
 public class AddressChecker {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in); 
-        String address = ""; 
+        String address = args[0];
 
-        while (address != "QUIT") {
-            System.out.print("Address: ");
-            address = scan.next(); 
-    
-            if (checkFormat(address)) {
-                System.out.println("Correct");
-                if (validAddress(address))
-                    System.out.println("Valid IP-Address");
-                else {
-                    System.out.println("Invalid IP-Address");
-                }
-            } else {
-                System.out.println("Incorrect");
-            } 
-        }
-        
-        scan.close(); 
+        if (checkFormat(address)) {
+            System.out.println("Correct Format");
+            validAddress(address);
+        } else {
+            System.out.println("Incorrect Format");
+        } 
     }
-
-    public static int numberOccurences(String address, char character) {
+    
+    private static int numberOccurences(String address, char character) {
         int occurences = 0;
 
         for (int index = 0; index < address.length(); index++) {
@@ -37,18 +23,19 @@ public class AddressChecker {
         return occurences; 
     }
 
-    public static boolean besideCharacters(String address, char character) {
+    private static boolean besideCharacters(String address, char character) {
+        boolean beside = false; 
         for (int index = 0; index < address.length() - 1; index++) {
             if (address.charAt(index) == character) {
                 if (address.charAt(index + 1) == character)
-                    return true; 
+                    beside = true; 
             }
         }
 
-        return false; 
+        return beside; 
     }
 
-    public static boolean checkFormat(String address) {
+    private static boolean checkFormat(String address) {
         int length = address.length(); 
         boolean valid = true; 
 
@@ -67,7 +54,7 @@ public class AddressChecker {
         return valid; 
     }
 
-    public static boolean validAddress(String address) {
+    private static void validAddress(String address) {
         String s = address + '.'; 
         boolean goAhead = true; 
 
@@ -90,8 +77,8 @@ public class AddressChecker {
         }
 
         if (goAhead) 
-            return true; 
-        
-        return false; 
+            System.out.println("Valid IP-Address"); 
+        else
+            System.out.println("Invalid IP-Address");
     }
 } 
