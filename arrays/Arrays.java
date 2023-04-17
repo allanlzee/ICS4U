@@ -16,7 +16,7 @@ public class Arrays {
 
         System.out.println(numberInArray(500, numbers)); */ 
 
-        String[] phoneNumbers = new String[10];
+        /* String[] phoneNumbers = new String[10];
         
         phoneNumbers[0] = "416-716-7752";
         phoneNumbers[1] = "416-717-9062";
@@ -45,7 +45,11 @@ public class Arrays {
             System.out.println("Phone number not found");
         }
 
-        scan.close(); 
+        scan.close(); */
+
+        int[] list = {1, 2, 3, 4, 5}; 
+        shiftN(list, 3); 
+        
     }
 
     public static boolean numberInArray(int number, int[] numbers) {
@@ -95,5 +99,38 @@ public class Arrays {
         System.out.println(counter + "items found");
     }
 
+    public static void shiftOne(int [] list, int d) {
+        if (d > 0) { // Shift right 
+            int temp = list[list.length - 1]; 
+
+            for (int i = list.length - 2; i >= 0; i--) {
+                list[i + 1] = list[i];
+            }
+
+            list[0] = temp; 
+        } else if (d < 0) { // Shift left 
+            int temp = list[0]; 
+
+            for (int i = 0; i < list.length - 1; i++) {
+                list[i] = list[i + 1]; 
+            }
+
+            list[list.length - 1] = temp; 
+        }
+
+        for (int a : list) System.out.println(a);
+    }
+
+    public static void shiftN(int [] list, int n) {
+        for (int i = 0; i < Math.abs(n); i++) {
+            shiftOne(list, n);
+        }
+    }
+
+    public static void swap(int[] list, int i, int j) {
+        int temp = list[i]; 
+        list[i] = list[j]; 
+        list[j] = temp; 
+    }
     
 }
