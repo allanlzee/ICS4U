@@ -1,7 +1,9 @@
 package arrays; 
 
 public class Test {
-    public static void uniqueEntries(int[] list) {
+    public static int[] uniqueEntries(int size) {
+        int[] list = new int[size];
+
         for (int i = 0; i < list.length; i++) {
             list[i] = i + 1; 
         }
@@ -12,5 +14,7 @@ public class Test {
 
             Arrays.swap(list, i, j); 
         }
+
+        return list; 
     }
 }
