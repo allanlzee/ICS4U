@@ -10,7 +10,24 @@ public class SearchAndSort {
 
         System.out.println();
 
-        printArray(insertionSort(list));
+        printArray(bubbleSort(list));
+
+        /* int[] nums = Test.uniqueEntries(1000); 
+
+        printArray(nums);
+
+        selectionSort(nums); 
+
+        System.out.println();
+
+        printArray(nums);
+
+        long start = System.currentTimeMillis();
+        System.out.println(binarySearch(nums, 33));
+        long end = System.currentTimeMillis(); 
+        System.out.println("\nTime: " + (end - start)); */ 
+
+
     }
 
     public static void printArray(int[] list) {
@@ -70,4 +87,42 @@ public class SearchAndSort {
 
         return numbers; 
     }
+
+    public static int binarySearch(int[] numbers, int key) {
+        int start = 0; 
+        int end = numbers.length - 1; 
+        int index = (start + end) / 2; 
+
+        while (key != numbers[index] && start <= end) {
+            if (key > numbers[index]) {
+                start = index + 1; 
+            } else if (key < numbers[index]) {
+                end = index - 1;
+            } 
+
+            index = (start + end) / 2; 
+        }
+
+        // Cannot use key == numbers[index]: results in index out of bounds error.
+
+        return start > end ? -1 : index;
+    }
+
+    public static int[] bubbleSort(int[] items) {
+        boolean swap = true; 
+
+        for (int limit = items.length - 1; limit > 0 && swap; limit--) {
+            swap = false; 
+
+            for (int index = 0; index <= limit - 1; index++) {
+                if (items[index] > items[index + 1]) {
+                    swapNumbers(items, index, index + 1);
+                    swap = true; 
+                } 
+            }
+        }
+
+        return items;
+    }
+
 }
