@@ -1,0 +1,8 @@
+Complexity of Linear Search: O(n)
+
+Binary Search 
+- Ordered list of elements 
+- Divide and conquer (solve problem by reducing its size)
+- For a list size of n, it takes log2(n) + 1 comparisons (worst-case)
+- Number of comparsions = floor(log2(list size)) + 1
+- Complexity of binary search: O(log(n))
