@@ -66,6 +66,70 @@ public class Fraction {
         return result; 
     }
 
+    public Fraction addFraction(Fraction other) {
+        Fraction result = new Fraction(); 
+
+        if (!this.undefined && !other.getUndefined()) {
+            result.setNumerator(this.numerator * other.getDenominator() + 
+                other.getNumerator() * this.denominator);  
+
+            result.setDenominator(this.denominator * other.getDenominator()); 
+        }
+
+        return result; 
+    }
+
+    public Fraction subtractFraction(Fraction other) {
+        Fraction result = new Fraction(); 
+
+        if (!this.undefined && !other.getUndefined()) {
+            result.setNumerator(this.numerator * other.getDenominator() - 
+                other.getNumerator() * this.denominator); 
+
+            result.setDenominator(this.denominator * other.getDenominator());
+        }
+
+        return result; 
+    }
+
+    public Fraction simplify() {
+        Fraction result = new Fraction();
+        int sign = 1; 
+
+        if (!undefined) {
+            if ((this.numerator < 0 || this.denominator < 0) && !(this.numerator < 0 && this.denominator < 0)) {
+                sign = -1; 
+            }
+
+            int numerator = (int) Math.abs(this.numerator);
+            int denominator = (int) Math.abs(this.denominator);
+
+            int gcd = gcd(numerator, denominator);
+
+            result.setNumerator(numerator / gcd * sign);
+            result.setDenominator(denominator / gcd);
+        }
+
+        return result; 
+    }
+
+    private int gcd(int m, int n) {
+        while (m != 0 && n != 0) {
+            if (m > n) {
+                m = m - n;
+            } else {
+                n = n - m; 
+            }
+        }
+
+        if (m != 0) {
+            return m;
+        } else {
+            return n; 
+        }
+    }
+
+    @Override 
     public String toString() {
         if (undefined) {
             return "undefined";
