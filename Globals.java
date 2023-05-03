@@ -1,6 +1,6 @@
 public class Globals {
     public static final int CR = 13;
-    public static final char BLANK = ' ';
+    public static final String BLANK = " ";
     public static final String NULL_STRING = ""; 
     public static final int NULL = 0; 
 
