@@ -4,30 +4,7 @@ import arrays.Test;
 
 public class SearchAndSort {
     public static void main(String[] args) {
-        int[] list = Test.uniqueEntries(20); 
-
-        printArray(list);
-
-        System.out.println();
-
-        printArray(bubbleSort(list));
-
-        /* int[] nums = Test.uniqueEntries(1000); 
-
-        printArray(nums);
-
-        selectionSort(nums); 
-
-        System.out.println();
-
-        printArray(nums);
-
-        long start = System.currentTimeMillis();
-        System.out.println(binarySearch(nums, 33));
-        long end = System.currentTimeMillis(); 
-        System.out.println("\nTime: " + (end - start)); */ 
-
-
+         
     }
 
     public static void printArray(int[] list) {

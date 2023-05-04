@@ -11,6 +11,40 @@ public class MixedNumber extends Fraction {
         this.integer = i; 
     }
 
+    public int getInteger() {
+        return this.integer; 
+    }
+
+    public void setInteger(int integer) {
+        this.integer = integer; 
+    }
+
+    public MixedNumber add(MixedNumber other) {
+        MixedNumber result = new MixedNumber(); 
+
+        Fraction improperThis = integer >= 0 ?
+            new Fraction(integer * denominator + numerator, denominator) :
+            new Fraction(integer * denominator - numerator, denominator); 
+
+        Fraction improperOther = other.getInteger() >= 0 ? 
+            new Fraction(
+                other.getInteger() * other.getDenominator() + other.getNumerator(), other.getDenominator()) :
+            new Fraction(
+                other.getInteger() * other.getDenominator() - other.getNumerator(), other.getDenominator()); 
+
+        if (!this.undefined && !improperOther.getUndefined()) {
+            Fraction improperResult = improperThis.addFraction(improperOther).simplify(); 
+
+            if (!improperResult.getUndefined()) {
+                result.setInteger(improperResult.getNumerator() / improperResult.getDenominator());
+                result.setNumerator(improperResult.getNumerator() - result.getInteger() * improperResult.getDenominator());
+                result.setDenominator(improperResult.getDenominator());
+            }
+        }
+
+        return result; 
+    } 
+
     @Override 
     public String toString() {
         if (super.undefined) {
