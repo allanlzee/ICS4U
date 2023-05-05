@@ -4,13 +4,6 @@ import arrays.Test;
 
 public class SearchAndSort {
     public static void main(String[] args) {
-        int[] list = Test.uniqueEntries(20); 
-
-        printArray(list);
-
-        System.out.println();
-
-        printArray(bubbleSort(list));
 
         /* int[] nums = Test.uniqueEntries(1000); 
 
@@ -26,6 +19,9 @@ public class SearchAndSort {
         System.out.println(binarySearch(nums, 33));
         long end = System.currentTimeMillis(); 
         System.out.println("\nTime: " + (end - start)); */ 
+
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; 
+        System.out.println(binarySearch(nums, 1));
 
 
     }
@@ -93,12 +89,22 @@ public class SearchAndSort {
         int end = numbers.length - 1; 
         int index = (start + end) / 2; 
 
+        System.out.println(index);
+            System.out.println(start);
+            System.out.println(end);
+            System.out.println();
+
         while (key != numbers[index] && start <= end) {
             if (key > numbers[index]) {
                 start = index + 1; 
             } else if (key < numbers[index]) {
                 end = index - 1;
             } 
+            System.out.println(index);
+            System.out.println(start);
+            System.out.println(end);
+            System.out.println();
+
 
             index = (start + end) / 2; 
         }
@@ -125,4 +131,5 @@ public class SearchAndSort {
         return items;
     }
 
-}
+} // 0 2 1 
+// 0 1 0

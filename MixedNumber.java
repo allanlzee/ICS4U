@@ -1,3 +1,5 @@
+
+
 public class MixedNumber extends Fraction {
     private int integer = -1; 
 

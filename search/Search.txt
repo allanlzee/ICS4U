@@ -6,3 +6,8 @@ Binary Search
 - For a list size of n, it takes log2(n) + 1 comparisons (worst-case)
 - Number of comparsions = floor(log2(list size)) + 1
 - Complexity of binary search: O(log(n))
+
+Graph Comparison 
+
+n^2 + log2(n) vs. n
+Sorting + Binary Search vs. Linear Search 

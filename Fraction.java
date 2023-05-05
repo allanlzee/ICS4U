@@ -1,3 +1,5 @@
+
+
 public class Fraction {
     protected int numerator = 0; 
     private int denominator = 0; 

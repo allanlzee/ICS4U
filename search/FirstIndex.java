@@ -7,6 +7,10 @@ public class FirstIndex {
         int[] items = {5};
 
         System.out.println(findFirst(items, 4));
+
+        int[] items2 = new int[4]; 
+
+        System.out.println(SearchAndSort.binarySearch(items2, 0));
     }
 
     public static int findFirst(int[] items, int key) {
